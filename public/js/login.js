@@ -1,9 +1,9 @@
 form.addEventListener('submit',()=>{
-    const register = {
+    const login = {
         email:email.value,
         password:password.value
     }
-    fetch('/api/register', {
+    fetch('/api/login', {
         method:'POST',
         body:JSON.stringify(register),
         headers : {
