@@ -36,12 +36,13 @@
                 <form onsubmit="return false;" id="form">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" 
+                        autocomplete="off" required>
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password" autocomplete="off" required>
                     </div>
                     <div class="alert alert-danger" role="alert" id="error" style="display:none;"></div>
                     <div class="alert alert-success" role="alert" id="success" style="display:none;"></div>
