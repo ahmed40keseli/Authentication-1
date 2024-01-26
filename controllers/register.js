@@ -34,8 +34,8 @@ const register = async (req, res) => {
             if (err) throw err;
             if (result[0]) return res.json({ status: "error", error: "email has already been registered" });
             else {
-                const hashedPassword = await bcrypt.hash(Npassword, 8);
-                db.query('INSERT INTO users SET ?', { email: email, password: hashedPassword }, (error, result) => {
+                const password = await bcrypt.hash(Npassword, 8);  // Await the result of bcrypt.hash
+                db.query('INSERT INTO users SET ?', { email: email, password: password }, (error, result) => {
                     if (error) throw error;
                     return res.json({ status: "success", success: "user has been registered" });
                 });
