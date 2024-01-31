@@ -20,10 +20,11 @@ const login = async(req,res) =>{
                 }
                 res.cookie("userRegistered",token ,cookieOptions);
                 return res.json({status:"success" , success:"user has been logged In"});
-                
+
             }
         })
     }
 }
 
+console.log(login());
 module.exports = login;

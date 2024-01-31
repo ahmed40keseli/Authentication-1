@@ -13,4 +13,5 @@ router.get('/login',(req,res)=>{
     res.sendFile('login.html',{root:'./public/'});
 })
 
+console.log("sayfa(ekran) yönlendirrrrrrrrrrmeleri tamamlanddı")
 module.exports = router;

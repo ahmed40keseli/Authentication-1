@@ -7,4 +7,6 @@ const db = sql.createConnection({
     database:process.env.DATABASE
 })
 
-module.exports = db;
+
+console.log("db yönlendddddirmeleri  oluşturuldu");
+module.exports = db; 
