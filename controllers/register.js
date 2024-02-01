@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const register = async (req,res) =>{
     const {email, password:Npassword} = req.body
+    // const password = await bcrypt.hash(Npassword, 8);
     if (!email || !password) return res.json({status:"error", error:"plase enter your email and password"});
     else{
         console.log(email);
@@ -10,7 +11,7 @@ const register = async (req,res) =>{
             if (err) throw err;
             if (result[0]) return res.json({status:"error",error:"email has already been registered"})
             else{
-                const password = bcrypt.hash(Npassword,8);
+                const password =await bcrypt.hash(Npassword,8);
                 console.log(password);
                 db.query('INSERT INTO users SET ?',{email: email,password: password},(error,result) => {
                     if (error) throw error;

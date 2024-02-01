@@ -4,10 +4,11 @@ const bcrypt = require('bcryptjs');
 
 const login = async(req,res) =>{
     const {email ,password} = req.body;
+    // const hashedPassword = bcrypt.hash(password, 8);
     if (!email || !password) return res.json({status:"error", error:"plase enter your email and password"});
     else{
         db.query('SELECT email FROM users WHERE email = ? ',[email], async (Err, result) => {
-            if (err) throw Err;
+            if (err) throw err;
             if (!result[0]  || !await bcrypt.compare(password, result[0].password))return res.json({status:"error", error:"plase enter your email and password"})
             else{
                 const token = jwt.sign({id:result[0].id},process.env.JWT_SECRET,{
