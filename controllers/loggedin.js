@@ -1,6 +1,6 @@
 const db = require("../routes/db-config")
 const jwt = require("jsonwebtoken");
-const loggedIn = (req, res) =>{
+const loggedIn = (req, res, next) =>{
     if (!req.cookies.userRegistered)return next();
     try {
         const decoded = jwt.verify(req.cookies.userRegistered,process.env.JWT_SECRET);  
@@ -10,7 +10,7 @@ const loggedIn = (req, res) =>{
             return next();
         })
     }catch(err){
-        if(err) return nex()
+        if(err) return next()
     }
 }
 
