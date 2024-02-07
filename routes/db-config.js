@@ -1,10 +1,9 @@
-const sql = require('mysql');
-const dotenv = require('dotenv').config();
-const db = sql.createConnection({
+const sql = require('mysql'); /*mysql kitaplığını dahil ediyoruz*/
+const db = sql.createConnection({  /*veritabanı bağlantısı oluşturulur*/ 
     host:process.env.DATABASE_HOST,
     user:process.env.DATABASE_USER,
     password:process.env.DATABASE_PASSWORD,
     database:process.env.DATABASE
 })
 
-module.exports = db; 
+module.exports = db; /*dışa aktararak uygulamanızın diğer bölümlerine aktarılabilmesini ve kullanılabilmesini sağlar. */
