@@ -3,10 +3,10 @@ const db = require('./routes/db-config') /*Önceden yapılandırılmış veritab
 const app = express(); /*Express uygulamasının bir örneğini başlatır. */
 const cookie = require('cookie-parser');/*Çerezleri işlemek için ara yazılımı içe aktarır. */
 const dotenv = require('dotenv').config();
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use('/js' , express.static(__dirname + '/public/js'));/* Express'i, belirtilen dizinlerden ( /public/js) statik dosyalar (JavaScript ve CSS) sunacak şekilde yapılandırır*/
 app.use('/css' , express.static(__dirname + '/public/css'));/* Express'i, belirtilen dizinlerden (/public/css) statik dosyalar (JavaScript ve CSS) sunacak şekilde yapılandırır*/
 
