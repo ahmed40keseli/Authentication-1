@@ -2,9 +2,9 @@ const express = require('express'); /*Express.js çerçevesini içe aktarır. */
 const db = require('./routes/db-config') /*Önceden yapılandırılmış veritabanı bağlantısını modülden içe aktarır (db-config) */
 const app = express(); /*Express uygulamasının bir örneğini başlatır. */
 const cookie = require('cookie-parser');/*Çerezleri işlemek için ara yazılımı içe aktarır. */
-const dotenv = require('dotenv').config();
+// const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
 app.use('/js' , express.static(__dirname + '/public/js'));/* Express'i, belirtilen dizinlerden ( /public/js) statik dosyalar (JavaScript ve CSS) sunacak şekilde yapılandırır*/

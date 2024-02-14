@@ -1,4 +1,4 @@
-const sql = require('mysql'); /*mysql kitaplığını dahil ediyoruz*/
+const sql = require('mysql2'); /*mysql kitaplığını dahil ediyoruz*/
 const db = sql.createConnection({  /*veritabanı bağlantısı oluşturulur*/ 
     host:process.env.DATABASE_HOST,
     user:process.env.DATABASE_USER,
