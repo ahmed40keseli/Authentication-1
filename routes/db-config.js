@@ -1,4 +1,5 @@
 const sql = require('mysql2'); /*mysql kitaplığını dahil ediyoruz*/
+const dotenv = require('dotenv').config();
 const db = sql.createConnection({  /*veritabanı bağlantısı oluşturulur*/ 
     host:process.env.DATABASE_HOST,
     user:process.env.DATABASE_USER,
