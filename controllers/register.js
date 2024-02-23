@@ -22,6 +22,4 @@ const register = async (req,res) =>{
     }
 }
 
-// okeyyyyyy
-
 module.exports = register;/*dışa aktararak uygulamanızın diğer bölümlerine aktarılabilmesini ve kullanılabilmesini sağlar. */
