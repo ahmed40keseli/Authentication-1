@@ -1,12 +1,12 @@
 const express = require('express');/* Express.js çerçevesini içe aktarır.*/
 const register = require('./register');/* */
 const login = require('./login');/* */
-const logout = require('./logout');/* */
+// const logout = require('./logout');/* */
 const router = express.Router();/* Yönlendirici rotaları tanımlamak ve gruplamak için kullanılır. */
 
 router.post('/register',register)/* '/register' yolu için POST rotası tanımlar.*/
 router.post('/login',login)/* '/login' yolu için POST rotası tanımlar. */
-router.post('/logout',logout)/* '/logout' yolu için POST rotası tanımlar. */
+// router.get('/logout',logout)/* '/logout' yolu için POST rotası tanımlar. */
 
 module.exports = router;/*dışa aktararak uygulamanızın diğer bölümlerine aktarılabilmesini ve kullanılabilmesini sağlar. */
 

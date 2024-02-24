@@ -6,7 +6,7 @@ const register = async (req,res) =>{
     if (!email || !Npassword) return res.json({status:"error", error:"plase enter your email and password"}); /*Hem e-postanın hem de şifrenin sağlanıp sağlanmadığını kontrol eder. 
                                                                                                                 Değilse, hata mesajı içeren bir JSON yanıtı döndürür. */
     else{
-        db.query('SELECT email FROM users WHERE email = ?',{email},async (err,result)=>{/* */
+        db.query('SELECT email FROM users WHERE email = ?',{email},async (err,result)=>{/* veri tabanından istenilen veriyi çeker */
             if (err) throw err;/* */
             if (result[0]) return res.json({status:"error",error:"email has already been registered"})/* Sağlanan e-postanın zaten kayıtlı olup olmadığını kontrol etmek için bir veritabanı sorgusu gerçekleştirir. 
                                                                                                          Eğer öyleyse, bir hata yanıtı döndürür.*/
