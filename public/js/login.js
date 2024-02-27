@@ -1,17 +1,21 @@
 const form = document.getElementById('form');
 
 form.addEventListener('submit', () => {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password'); 
-
-    const loginData = {
-        email: email.value,
-        password: password.value
+    // const email = document.getElementById('email');
+    // const password = document.getElementById('password'); 
+    const login = {
+        email:email.value,
+        password:password.value
     }
+    // const loginData = {
+    //     email: email.value,
+    //     password: password.value
+    // }
 
     fetch('/api/login', {
         method: 'POST',
-        body: JSON.stringify(loginData),
+        // body: JSON.stringify(loginData),
+        body: JSON.stringify(login),
         headers: {
             'content-Type': 'application/json'
         }

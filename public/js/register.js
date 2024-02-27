@@ -3,6 +3,10 @@ form.addEventListener('submit',()=>{
         email:email.value,
         password:password.value
     }
+    console.log(register)
+    console.log(email)
+    console.log(password)
+
     fetch('/api/register', {
         method:'POST',
         body:JSON.stringify(register),

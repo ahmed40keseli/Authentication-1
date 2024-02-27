@@ -56,8 +56,7 @@ const login = async (req, res) => {
             if (!result.length || !await bcrypt.compare(password, result[0].password)) return res.json({ status: "error", error: "plase enter your email and password" })
             else {
                 const token = jwt.sign({ id: result[0].id }, process.env.JWT_SECRET, {
-                    expiresIn: process.env.JWT_EXPIRES,
-                    httpOnly: true
+                    expiresIn: process.env.JWT_EXPIRES
                 })
                 const cookieOptions = {
                     expiresIn: new Date(Date.now() + process.env.COOKIE_EXPIRS + 24 * 60 * 60 * 1000),
