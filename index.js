@@ -4,7 +4,7 @@ const app = express(); /*Express uygulamasının bir örneğini başlatır. */
 const cookie = require('cookie-parser');/*Çerezleri işlemek için ara yazılımı içe aktarır. */
 // const dotenv = require('dotenv').config();
 // const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // app.use(bodyParser.json());
 app.use('/js' , express.static(__dirname + '/public/js'))/* Express'i, belirtilen dizinlerden ( /public/js) statik dosyalar (JavaScript ve CSS) sunacak şekilde yapılandırır*/

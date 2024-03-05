@@ -11,7 +11,7 @@ form.addEventListener('submit', () => {
     //     email: email.value,
     //     password: password.value
     // }
-
+    console.log(login);
     fetch('/api/login', {
         method: 'POST',
         // body: JSON.stringify(loginData),
