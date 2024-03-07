@@ -9,11 +9,13 @@ const register = async (req, res) => {
         console.log("email");
         console.log(email);
         db.query('SELECT email FROM users WHERE email = ?', [email], async (err, result) => {
-            console.log("where sorgusu bitt");
+            console.log("where sorgusu bitti");
             if (err) throw err;
         
             console.log("result");
             console.log(result);
+            console.log("result");
+
         
             if (result.length > 0) {
                 console.log("if'e girdi");

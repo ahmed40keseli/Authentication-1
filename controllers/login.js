@@ -53,15 +53,18 @@ const login = async (req, res) => {
     else {
         db.query('SELECT * FROM users WHERE email = ? ', [email], async (Err, result) => {
             if (Err) throw Err;
+            console.log(email)
             if (!result.length || !await bcrypt.compare(password, result[0].password)) return res.json({ status: "error", error: "plase enter your email and password" })
             else {
                 const token = jwt.sign({ id: result[0].id }, process.env.JWT_SECRET, {
                     expiresIn: process.env.JWT_EXPIRES
                 })
+                console.log(token)
                 const cookieOptions = {
                     expiresIn: new Date(Date.now() + process.env.COOKIE_EXPIRS + 24 * 60 * 60 * 1000),
                     httpOnly: true
                 }
+                console.log(cookieOptions)
                 res.cookie("userRegistered", token, cookieOptions);
                 return res.json({ status: "success", success: "user has been logged In" });
 

@@ -3,9 +3,9 @@ const loggedIn = require("../controllers/loggedIn")/*'../controllers/loggedIn' b
 const logout = require('../controllers/logout');/* */
 const router = express.Router();/*Yönlendirici rotaları tanımlamak ve gruplamak için kullanılır. */
 
-router.get('/', loggedIn, (req, res) => { /* Kök yol ('/') için bir GET rotası tanımlar , erişilebilir olması gerektiğini belirten ara yazılımı kullanır . */
+router.get("/", loggedIn, (req, res) => { /* Kök yol ('/') için bir GET rotası tanımlar , erişilebilir olması gerektiğini belirten ara yazılımı kullanır . */
     if (req.user) {
-        res.render('index', { status: "loggedIn", user: req.user });/*Doğruysa, 'dizin' görünümünü "oturum açmış" durumuyla ve kullanıcı ayrıntılarıyla oluşturur.  */
+        res.render('index', { status: "loggedIn", user:req.user });/*Doğruysa, 'dizin' görünümünü "oturum açmış" durumuyla ve kullanıcı ayrıntılarıyla oluşturur.  */
     } else {
         res.render('index', { status: "no", user: "nothing" });/*Değilse, "dizin" görünümünü "hayır" durumuyla ve varsayılan kullanıcı değeri "hiçbir şey"le oluşturur. */
     }
@@ -13,11 +13,11 @@ router.get('/', loggedIn, (req, res) => { /* Kök yol ('/') için bir GET rotas�
 // router.get("/",loggedIn,(req,res)=>{
 //     res.render("index");
 // })
-router.get('/register', (req, res) => {
+router.get("/register", (req, res) => {
     res.sendFile('register.html', { root: './public/' });/*Rota işleyici işlevi yanıt olarak 'register.html' dosyasını gönderir. Dosyanın './public/' dizininde bulunması bekleniyor. */
 })
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
     res.sendFile('login.html', { root: './public/' });/*Rota işleyici işlevi yanıt olarak 'login.html' dosyasını gönderir. Dosyanın './public/' dizininde bulunması bekleniyor. */
 })
-router.get('/logout',logout)
+router.get("/logout",logout)
 module.exports = router;/*dışa aktararak uygulamanızın diğer bölümlerine aktarılabilmesini ve kullanılabilmesini sağlar. */
