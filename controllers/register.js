@@ -1,10 +1,12 @@
-const db = require('../routes/db-config');/*Önceden yapılandırılmış veritabanı bağlantısını modülden içe aktarır (db-config) */
-const bcrypt = require('bcryptjs');/* Parolaları güvenli bir şekilde karma hale getirmek için kullanılan kitaplığı içe aktarır.*/
+const db = require('../routes/db-config');
+/*Önceden yapılandırılmış veritabanı bağlantısını modülden içe aktarır (db-config) */
+const bcrypt = require('bcryptjs');
+/* Parolaları güvenli bir şekilde karma hale getirmek için kullanılan kitaplığı içe aktarır.*/
 
 const register = async (req, res) => {
     const { email, password: Npassword } = req.body
-    if (!email || !Npassword) return res.json({ status: "error", error: "plase enter your email and password" }); /*Hem e-postanın hem de şifrenin sağlanıp sağlanmadığını kontrol eder. 
-                                                                                                                Değilse, hata mesajı içeren bir JSON yanıtı döndürür. */
+    if (!email || !Npassword) return res.json({ status: "error", error: "plase enter your email and password" }); 
+    /*Hem e-postanın hem de şifrenin sağlanıp sağlanmadığını kontrol eder. Değilse, hata mesajı içeren bir JSON yanıtı döndürür. */
     else {
         console.log("email");
         console.log(email);
@@ -14,16 +16,15 @@ const register = async (req, res) => {
         
             console.log("result");
             console.log(result);
-            console.log("result");
 
-        
             if (result.length > 0) {
                 console.log("if'e girdi");
                 return res.json({ status: "error", error: "email has already been registered" });
             } else {
                 console.log("else'e girdi");
                 console.log(Npassword);
-                const password = await bcrypt.hash(Npassword, 8); // şifreyi şifreleyen kod
+                const password = await bcrypt.hash(Npassword, 8); 
+                // şifreyi şifreleyen kod
         
                 console.log(password);
                 db.query('INSERT INTO users SET ?', { email: email, password: password }, (error, result) => {
@@ -36,4 +37,5 @@ const register = async (req, res) => {
     }
 }
 
-module.exports = register;/*dışa aktararak uygulamanızın diğer bölümlerine aktarılabilmesini ve kullanılabilmesini sağlar. */
+module.exports = register;
+/*dışa aktararak uygulamanızın diğer bölümlerine aktarılabilmesini ve kullanılabilmesini sağlar. */

@@ -22,23 +22,30 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <%if (status=="loggedIn" ){%> <!--Bu bloklar, içeriği 'durum' değişkeninin değerine göre koşullu olarak işler.  -->
+          <%if (status=="loggedIn" ){%> 
+              <!--Bu bloklar, içeriği 'durum' değişkeninin değerine göre koşullu olarak işler.  -->
+
             <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
-            <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+              <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-            <script> console.log(logout)</script>
-            <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+              <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+
             <%}else{%>
               <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-              <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+                <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+
               <li class="nav-item"><a class="nav-link" href="/login">Login</a> </li>
-              <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+                <!--'Durum'a göre koşullu olarak görüntülenen düğmeler vardır. -->
+
               <%}%>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container my-5"><!--Düzen için Bootstrap'in konteyner sınıfını ( ) kullanır -->
+  <div class="container my-5">
+    <!--Düzen için Bootstrap'in konteyner sınıfını ( ) kullanır -->
+
     <div class="card" style="width: 100%;">
       <div class="card-body">
         <%if (status=="loggedIn" ){%>
@@ -52,13 +59,17 @@
               <%if (status=="ok" ){%>
                 <button class="btn btn-primary"><a href="/profile"
                     style="color:white; text-decoration:none">Profile</a></button>
+
                 <button class="btn btn-primary"><a href="/logout"
                     style="color:white; text-decoration:none">Logout</a></button>
+
                 <%}else{%>
                   <button class="btn btn-primary"><a href="/login"
                       style="color:white; text-decoration:none">Login</a></button>
+
                   <button class="btn btn-primary"><a href="/register"
                       style="color:white; text-decoration:none">Register</a></button>
+
                   <%}%>
       </div>
     </div>
